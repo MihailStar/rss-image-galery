@@ -1,0 +1,24 @@
+extends ./templates/main.pug
+
+block variables
+  -
+    const pageTitle = 'Image Galery | Поиск фотографий по ключевому слову';
+    const pageClass = 'image-galery';
+    const isVisibleForRobots = false;
+
+block head
+  link(rel="preconnect", href="https://fonts.googleapis.com")
+  link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+  link(
+    rel="stylesheet",
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Stalinist+One&display=swap"
+  )
+
+block body
+  noscript Вам необходимо включить JavaScript, чтобы запустить это приложение
+  .image-galery__header
+    +header
+  .image-galery__main
+    +main
+  .image-galery__footer
+    +footer

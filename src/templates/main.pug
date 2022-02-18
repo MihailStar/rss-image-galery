@@ -1,0 +1,29 @@
+include ../components/header/header.pug
+include ../components/main/main.pug
+include ../components/footer/footer.pug
+
+block variables
+
+doctype html
+html(
+  class=pageClass,
+  lang=typeof documentLanguage === "string" ? documentLanguage : "ru"
+)
+  head
+    meta(charset="utf-8")
+    if isVisibleForRobots === false
+      meta(name="robots", content="none")
+    if typeof pageDescription === 'string'
+      meta(name="description", content=pageDescription)
+    if typeof pageKeywords === 'string'
+      meta(name="keywords", content=pageKeywords)
+    meta(name="format-detection", content="email=no")
+    meta(name="format-detection", content="telephone=no")
+    meta(name="viewport", content="width=768, initial-scale=1")
+    title= pageTitle
+    block head
+    link(href="./styles/main.css", rel="stylesheet")
+
+  body(class=typeof pageClass === "string" ? `${pageClass}__body` : void 0)
+    block body
+    script(src="./scripts/main.js", defer)
